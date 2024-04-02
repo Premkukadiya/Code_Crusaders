@@ -1,0 +1,18 @@
+//first we need to randomly assign M/2 people at the gates
+
+function random_assignment(M,N,gates)
+
+srand(time(nullptr))           //we need to change random values as time changes and we initialize time with 0
+
+for( i=0 to M/2 )
+{
+
+gate_index = rand() % N        //generating any random gate index from N gates
+
+gate[gate_index].push(i)       //adding attendee in the random gate index generated 
+
+}
+
+for( i=0 to N-1 )
+
+print( gate[i].size )           //printing number of people in each queue
