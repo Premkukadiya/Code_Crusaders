@@ -24,6 +24,11 @@ Function Calculate_waiting_time(gate, P, N, waiting_time):
        Print ("waiting time for a new attendee at ",i+1," gate ",waiting_time )
     End For
 End Function
+Function Waiting_time(gate, P, N, waiting_time):
+    For (i from 0 to N - 1)
+        waiting_time[i] = gate[i].size() * P  // Calculate waiting time for each gate
+    End For
+End Function
 
 Function suggest_queue(N, waiting_time)
     min = waiting_time[0]
