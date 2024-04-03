@@ -19,9 +19,25 @@ print( gate[i].size )           //printing number of people in each queue
 End For
 End function
 Function Calculate_waiting_time(gate, P, N, waiting_time):
-    For i from 0 to N - 1:
+    For (i from 0 to N - 1)
         waiting_time[i] = gate[i].size() * P  // Calculate waiting time for each gate
        Print ("waiting time for a new attendee at ",i+1," gate ",waiting_time )
     End For
 End Function
 
+Function suggest_queue(N, waiting_time)
+    min = waiting_time[0]
+    Print "Suggested gates are "
+    For (i from 0 to N - 1)
+        If min >= waiting_time[i];
+            min = waiting_time[i]
+    End For
+    For (i from 0 to N - 1)
+        If waiting_time[i] == min;
+            Print i + 1
+            j=i   // the index of the gate with the minimum waiting time stored in new varriable
+
+    End For
+    Print "and for this gate waiting time is", min
+   Return j  // the index of the gate with the minimum waiting time
+End Function
