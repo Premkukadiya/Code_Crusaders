@@ -68,6 +68,25 @@ public:
         cout << "and for this gate waiting time is " << min << " minutes" << endl;
         return j;
     }
+
+    void add_in_suggested_queue() {
+        int People;
+        if (M % 2 == 0)
+            People = M / 2;
+        else
+            People = M / 2 + 1;
+
+        for (int i = 0; i < People; i++) {
+            int Index_gate = suggest_queue();
+            gate[Index_gate].push(i);
+            for (int j = 0; j < N; j++) {
+                if (!gate[j].empty()) {
+                    gate[j].pop();
+                }
+                Waiting_time();
+            }
+        }
+    }
 };
 
 
