@@ -6,6 +6,21 @@
 
 using namespace std;
 
+class Stadium {
+private:
+    vector<queue<int>> gate;
+    vector<int> waiting_time;
+    int N;
+    int M;
+    int P;
+
+public:
+    Stadium(int numGates, int capacity, int entryTime) : N(numGates), M(capacity), P(entryTime) {
+        gate.resize(N);
+        waiting_time.resize(N);
+    }
+};
+
 int main() 
 {
     int N, M, P;
