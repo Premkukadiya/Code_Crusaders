@@ -4,7 +4,7 @@
 #include <vector>
 #include <queue>
 
-using namespace std;
+using namespace std;
 
 class Stadium 
 {
@@ -20,7 +20,7 @@ public:
     {
         gate.resize(N);
         waiting_time.resize(N);
-    }
+}
 
     void Calculate_waiting_time() 
     {
@@ -28,8 +28,8 @@ public:
             waiting_time[i] = gate[i].size() * P;
             cout << "Waiting time for new attendee at gate " << i + 1 << ": " << waiting_time[i] << " minutes" << endl;
         }
-        cout << endl;
-    }
+        cout << endl;
+ }
 
     void Waiting_time() 
     {
@@ -108,5 +108,5 @@ int main()
     stadium.Calculate_waiting_time();
     stadium.add_in_suggested_queue();
 
-    return 0;
+ return 0;
 }
