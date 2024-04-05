@@ -6,7 +6,8 @@
 
 using namespace std;
 
-class Stadium {
+class Stadium 
+{
 private:
     vector<queue<int>> gate;
     vector<int> waiting_time;
@@ -15,19 +16,23 @@ private:
     int P;
 
 public:
-    Stadium(int numGates, int capacity, int entryTime) : N(numGates), M(capacity), P(entryTime) {
+    Stadium(int numGates, int capacity, int entryTime) : N(numGates), M(capacity), P(entryTime) 
+    {
         gate.resize(N);
         waiting_time.resize(N);
     }
-};
 
-void Calculate_waiting_time() {
+    void Calculate_waiting_time() 
+    {
         for (int i = 0; i < N; ++i) {
             waiting_time[i] = gate[i].size() * P;
             cout << "Waiting time for new attendee at gate " << i + 1 << ": " << waiting_time[i] << " minutes" << endl;
         }
         cout << endl;
     }
+};
+
+
 
 int main() 
 {
