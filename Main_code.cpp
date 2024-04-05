@@ -49,6 +49,25 @@ public:
         }
         cout << endl;
     }
+
+    int suggest_queue() {
+        int min = waiting_time[0];
+        cout << "Suggested gates are: ";
+        for (int i = 0; i < N; ++i) {
+            if (min >= waiting_time[i]) {
+                min = waiting_time[i];
+            }
+        }
+        int j;
+        for (int i = 0; i < N; ++i) {
+            if (waiting_time[i] == min) {
+                cout << i + 1 << " ";
+                j = i;
+            }
+        }
+        cout << "and for this gate waiting time is " << min << " minutes" << endl;
+        return j;
+    }
 };
 
 
