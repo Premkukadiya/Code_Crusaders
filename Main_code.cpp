@@ -37,6 +37,18 @@ public:
             waiting_time[i] = gate[i].size() * P;
         }
     }
+
+    void Random_Assignment(){
+            srand(time(NULL));
+        for (int i = 0; i < M / 2; i++) {
+            int a = rand() % N;
+            gate[a].push(i);
+        }
+        for (int i = 0; i < N; i++) {
+            cout << "Number of attendee in " << i + 1 << " gate " << gate[i].size() << endl;
+        }
+        cout << endl;
+    }
 };
 
 
