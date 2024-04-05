@@ -21,6 +21,14 @@ public:
     }
 };
 
+void Calculate_waiting_time() {
+        for (int i = 0; i < N; ++i) {
+            waiting_time[i] = gate[i].size() * P;
+            cout << "Waiting time for new attendee at gate " << i + 1 << ": " << waiting_time[i] << " minutes" << endl;
+        }
+        cout << endl;
+    }
+
 int main() 
 {
     int N, M, P;
