@@ -30,6 +30,13 @@ public:
         }
         cout << endl;
     }
+
+    void Waiting_time() 
+    {
+        for (int i = 0; i < N; ++i) {
+            waiting_time[i] = gate[i].size() * P;
+        }
+    }
 };
 
 
