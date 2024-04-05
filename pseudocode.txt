@@ -46,3 +46,31 @@ Function suggest_queue(N, waiting_time)
     Print "and for this gate waiting time is", min
    Return j  // the index of the gate with the minimum waiting time
 End Function
+
+function add_in_suggested_queue(int M, vector<int> & waiting_time,vector<queue<int>> &gate,int N,int P)
+{
+    int people
+
+    if(M is even)
+    people = M/2
+
+    else 
+    people = M/2+1
+
+    for( int i=0 to People )
+    {
+        int index_gate = suggest_queue(N,waiting_time)
+        gate[index_gate].push(i)
+
+        for( int j =0 to N )
+        if(gate[j].empty()==false)
+        gate[i].pop
+
+        End for
+    }
+
+    Waiting_time(gate,P,N,waiting_time)
+
+    End for
+
+}
