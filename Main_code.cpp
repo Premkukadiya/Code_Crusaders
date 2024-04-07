@@ -175,6 +175,50 @@ public:
         }
         return sum;
     }
+    // Assigning  half of people 
+    void addition_of_people_in_the_queue()
+    {
+        cout << "Now adding a random number of people to random gates:" << endl;
+        int a, k;
+        if (M % 2 == 0)
+            a = M / 2;
+        else
+            a = (M / 2) + 1;
+        int z;
+        
+        if (M / 2 < 200)
+            z = 10;
+        else if (M / 2 > 200 && M / 2 < 1000)
+            z = 75;
+        else if (M / 2 > 1000 && M / 2 < 3000)
+            z = 250;
+        else if (M / 2 > 3000 && M / 2 < 15000)
+            z = 750;
+        else if (M / 2 > 15000 && M / 2 < 50000)
+            z = 2000;
+        else
+            z = 6000;
+
+        srand(time(nullptr));
+        while (a != 0 && a > 0)
+        {
+            int randomgate = rand() % N;      
+            int newpeople = (rand() % z) + 1; 
+            if (a < newpeople)
+                newpeople = a;
+            for (int i = 0; i < newpeople; i++)
+            {
+                gate[randomgate].push(i); 
+            }
+            cout << newpeople << " people added at gate no " << randomgate + 1 << endl;
+            k = sum_of_the_number_of_people_in_gates();
+            Calculate_waiting_time();
+            sort();
+            Internal_Arrangement(k);
+            Calculate_waiting_time();
+            a -= newpeople;
+        }
+    }
 
 
     
