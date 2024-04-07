@@ -89,7 +89,7 @@ public:
     // Suggesting Queue with min waiting time
     int suggest_queue()
     {
-        int min = waiting_time[0];
+        float min = waiting_time[0];
         cout << "Suggested gates for this group: ";
         for (int i = 0; i < N; ++i)
         {
