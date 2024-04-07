@@ -121,7 +121,28 @@ public:
         cout << "and for this gate waiting time is " << min << " minutes" << endl;
         return j;
     }
-    // Function to arrange people in gates for minimum waiting time
+
+    // Function to arrange gates according to waiting time 
+    void sort()
+    {
+        int i = 0;
+        while (i <= N - 1)
+        {
+            int j = i + 1;
+            while (j <= N - 1)
+            {
+                if (gate[i].size() < gate[j].size())
+                {
+                    swap(gate[i], gate[j]);
+                }
+                j++;
+            }
+            i++;
+        }
+    }
+
+    // Function to arrage people (to minimize waiting time)
+    
     void Internal_Arrangement(int k)
     {
         cout << "After arranging people for minimum time :" << endl;
