@@ -85,14 +85,14 @@ public:
         }
         cout << endl;
     }
-
+    // Waiting time of each gate 
     void Waiting_time() 
     {
         for (int i = 0; i < N; ++i) {
             waiting_time[i] = gate[i].size() * P;
         }
     }
-
+    // Assign first half of people 
     void Random_Assignment(){
             srand(time(NULL));
         for (int i = 0; i < M / 2; i++) {
@@ -104,10 +104,10 @@ public:
         }
         cout << endl;
     }
-
+    // Suggesting Queue with min waiting time 
     int suggest_queue() {
         int min = waiting_time[0];
-        cout << "Suggested gates are: ";
+        cout << "Suggested gates for this group is: ";
         for (int i = 0; i < N; ++i) {
             if (min >= waiting_time[i]) {
                 min = waiting_time[i];
