@@ -34,8 +34,48 @@ public:
             VIP_gate.resize(NUM_GATE_VIP);
         }
     }
+     // Function to assign gate for VIPs
+    void Random_Assignment_For_VIP()
+    {
+        cout << "Assigning  VIP Attendees..." << endl;
+        srand(time(NULL)); 
+        int j = NUM_VIP;
+        int randgate;
+        int newpeople;
+        while (j != 0)
+        {
+            if (NUM_GATE_VIP == 1)
+                randgate = 0;
+            else
+                randgate = rand() % NUM_GATE_VIP;
 
-    void Calculate_waiting_time() 
+            newpeople = rand() % 20 + 1; 
+            if (j < newpeople)
+                newpeople = j;
+
+            for (int i = 0; i < newpeople; i++)
+            {
+                VIP_gate[randgate].push(i); 
+            }
+            j -= newpeople;
+        }
+
+        
+        for (int i = 0; i < NUM_GATE_VIP; i++)
+        {
+            cout << "Number of people at VIP gate " << i + 1 << " is " << VIP_gate[i].size() << endl;
+        }
+
+        cout << "Waiting time for vip at each gate:"<<endl;
+        // Printing waiting time for VIPs
+        for(int i=0;i<NUM_GATE_VIP;i++)
+        {
+            cout <<"Waiting time at gate " << i+1 << " is "<<(VIP_gate[i].size())*TIME_VIP<<endl;
+        }
+    }
+
+    //Function to claculate waiting time for general gates 
+     void Calculate_waiting_time() 
     {
         for (int i = 0; i < N; ++i) {
             waiting_time[i] = gate[i].size() * P;
