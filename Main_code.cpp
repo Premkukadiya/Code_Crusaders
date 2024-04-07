@@ -75,14 +75,16 @@ public:
     }
 
     //Function to claculate waiting time for general gates 
-     void Calculate_waiting_time() 
+    void Calculate_waiting_time()
     {
-        for (int i = 0; i < N; ++i) {
+        cout << "Waiting time for each gate:" << endl;
+        for (int i = 0; i < N; ++i)
+        {
             waiting_time[i] = gate[i].size() * P;
             cout << "Waiting time for new attendee at gate " << i + 1 << ": " << waiting_time[i] << " minutes" << endl;
         }
         cout << endl;
- }
+    }
 
     void Waiting_time() 
     {
