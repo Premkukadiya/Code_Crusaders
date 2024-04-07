@@ -123,6 +123,8 @@ int main()
 
     cout << "Enter capacity: ";
     cin >> M;
+    if(M>150000)
+    cout<<"Overflow"<<endl
 
     cout << "Enter time (in minutes) for a single attendee to enter any gate: ";
     cin >> P;
