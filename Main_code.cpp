@@ -257,4 +257,71 @@ public:
     
 };
 
+int main()
+{
+    int N, M, GATE_VIP, Num_VIP;
+    float P, VIP_TIME;
+
+    cout << "Enter the number of gates in the stadium: ";
+    cin >> N;
+
+    
+    if (N <= 0)
+    {
+        cout << "Invalid number of gates. Please enter a positive integer." << endl;
+        return 1;
+    }
+
+    cout << "Enter the capacity of the stadium: ";
+    cin >> M;
+
+    if (M > 150000)
+        cout << "Not a valid capacity" << endl;
+
+    
+    if (M <= 0)
+    {
+        cout << "Invalid capacity. Please enter a positive integer." << endl;
+        return 1;
+    }
+
+    cout << "Enter the time taken (in minutes) for a single attendee to enter any gate: ";
+    cin >> P;
+
+    cout << "How many gates are for VIP entry: ";
+    cin >> GATE_VIP;
+
+    
+    if (GATE_VIP < 0 || GATE_VIP > N)
+    {
+        cout << "Invalid number of VIP gates. Please enter a non-negative integer less than or equal to the number of gates." << endl;
+        return 1;
+    }
+
+    cout << "Enter the number of VIPs or premium ticket holders: ";
+    cin >> Num_VIP;
+
+    cout << "Enter the entry time for VIPs in gate: ";
+    cin >> VIP_TIME;
+
+    cout << endl;
+
+     
+    Stadium stadium(N, M - Num_VIP, P, GATE_VIP, Num_VIP, VIP_TIME);
+    stadium.Random_Assignment();
+    stadium.Calculate_waiting_time();
+    int Z;
+    cout << "what systum you want to pick(1/2):" << endl;
+    cout << "1.minimize time for all attendees" << endl;
+    cout << "2.group systum" << endl;
+    cin >> Z;
+    if (Z == 1)
+        stadium.addition_of_people_in_the_queue();
+    else if (Z == 2)
+        stadium.Group_System();
+
+    stadium.Random_Assignment_For_VIP();
+
+    return 0;
+}
 
