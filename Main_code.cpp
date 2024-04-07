@@ -3,24 +3,37 @@
 #include <time.h>
 #include <vector>
 #include <queue>
+#include <algorithm>
 
 using namespace std;
 
-class Stadium 
+class Stadium
 {
 private:
-    vector<queue<int>> gate;
-    vector<int> waiting_time;
-    int N;
-    int M;
-    int P;
+    vector<queue<int>> gate;         
+    vector<queue<int>> VIP_gate; 
+    vector<float> waiting_time;  
+    int N;                        // Number of gates in the stadium
+    int M;                        // Total capacity of the stadium
+    float P;                      // Time taken (in min) for a single attendee to enter any gate
+    int sum;                      // Total attendee at gate
+    int NUM_GATE_VIP;             
+    int NUM_VIP;                  
+    float TIME_VIP;               // Entry time for VIP attendees
+    int j;                        
 
 public:
-    Stadium(int numGates, int capacity, int entryTime) : N(numGates), M(capacity), P(entryTime) 
+    // Constructor to initialize the stadium
+    Stadium(int numGates, int capacity, float entryTime, int GATE_VIP, int TOTAL_VIP_PEOPLE, float time) : N(numGates), M(capacity), P(entryTime), NUM_GATE_VIP(GATE_VIP), NUM_VIP(TOTAL_VIP_PEOPLE), TIME_VIP(time)
     {
-        gate.resize(N);
-        waiting_time.resize(N);
-}
+        gate.resize(N);         
+        waiting_time.resize(N); 
+        
+        if (NUM_GATE_VIP > 0 && NUM_GATE_VIP <= N)
+        {
+            VIP_gate.resize(NUM_GATE_VIP);
+        }
+    }
 
     void Calculate_waiting_time() 
     {
