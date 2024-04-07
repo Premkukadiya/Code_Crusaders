@@ -18,15 +18,17 @@ For( i=0 to N-1 )
 print( gate[i].size )           //printing number of people in each queue
 End For
 End function
+
 Function Calculate_waiting_time(gate, P, N, waiting_time):
     For (i from 0 to N - 1)
-        waiting_time[i] = gate[i].size() * P  // Calculate waiting time for each gate
+        waiting_time[i] = gate[i].size() * P                           // Calculate waiting time for each gate
        Print ("waiting time for a new attendee at ",i+1," gate ",waiting_time )
     End For
 End Function
+
 Function Waiting_time(gate, P, N, waiting_time):
     For (i from 0 to N - 1)
-        waiting_time[i] = gate[i].size() * P  // Calculate waiting time for each gate
+        waiting_time[i] = gate[i].size() * P                           // Calculate waiting time for each gate
     End For
 End Function
 
@@ -40,37 +42,124 @@ Function suggest_queue(N, waiting_time)
     For (i from 0 to N - 1)
         If waiting_time[i] == min;
             Print i + 1
-            j=i   // the index of the gate with the minimum waiting time stored in new varriable
+            j=i                                                            // the index of the gate with the minimum waiting time stored in new varriable
 
     End For
     Print "and for this gate waiting time is", min
-   Return j  // the index of the gate with the minimum waiting time
+   Return j                                                               // the index of the gate with the minimum waiting time
+
 End Function
 
-function add_in_suggested_queue(int M, vector<int> & waiting_time,vector<queue<int>> &gate,int N,int P)
-{
-    int people
+sort(vector<queue<int>>)
 
-    if(M is even)
-    people = M/2
+function internal_assignment(int k)
 
-    else 
-    people = M/2+1
+    for( i=0 to N-1 )
+    
+        while(gate[i].size()!=k/N)
+        
+            gate[i+1].push(gate[i].front())
+            gate[i].pop()
+        
+        End While
+    
+    End For
 
-    for( int i=0 to People )
-    {
-        int index_gate = suggest_queue(N,waiting_time)
-        gate[index_gate].push(i)
+End Function
 
-        for( int j =0 to N )
-        if(gate[j].empty()==false)
-        gate[i].pop
+function sum_of_number_of_people_in_queue()
 
-        End for
-    }
+    sum = 0
 
-    Waiting_time(gate,P,N,waiting_time)
+for( i=0 to N )
+    sum+=gate[i].size()
+End For
 
-    End for
+End Function
 
-}
+function random_assignment_of_VIP()
+srand(time(null))
+j=NUM_vip
+int randgate
+int newpeople
+
+while(j!=0)
+
+ if(NUM_gate_vip==1)
+ randgate=0
+ End If
+
+ ELSE
+ randgate=rand() % NUM_gate_vip
+ End else
+
+ newpeople = rand() % 20 + 1
+
+ if(j<newpeople)
+ newpeople = j
+ End If
+
+ For( i=0 to newpeople )
+ VIP_gate[randgate].push(i)
+ End For
+j-=newpeople
+
+End While
+
+End Function
+
+function add_in_suggested_queue()
+int a,k
+if M % 2 == 0:
+    a = M / 2
+    End If
+
+else:
+    a = (M / 2) + 1
+    End Else
+
+if M / 2 < 200:
+    z = 10
+    End If
+
+else if M / 2 > 200 and M / 2 < 1000:
+    z = 75
+    End If
+
+else if M / 2 > 1000 and M / 2 < 3000:
+    z = 250
+    End If
+
+else if M / 2 > 3000 and M / 2 < 15000:
+    z = 750
+    End If
+
+else if M / 2 > 15000 and M / 2 < 50000:
+    z = 2000
+    End If
+else:
+    z = 6000
+    End Else
+
+srand(time(null))
+
+While( a!=0 && a>0 )
+int randomgate = rand() % N;                                             // Select a random gate
+int newpeople = (rand() % z) + 1;                             // Random number of people to add
+if (a < newpeople)
+newpeople = a;
+End If
+
+for (int i = 0; i < newpeople; i++)       
+gate[randomgate].push(i);                                    // Add people to the selected gate
+End For
+
+k = sum_of_the_number_of_people_in_gates();
+Calculate_waiting_time();
+sort();
+Internal_Arrangement(k);
+Calculate_waiting_time();
+a -= newpeople;
+
+End While
+        
