@@ -219,7 +219,40 @@ public:
             a -= newpeople;
         }
     }
+    // Function allowing user to enter their group size 
+    void Group_System()
+    {
+        int L, f;
+        if (M % 2 == 0)
+            L = M / 2;
+        else
+            L = (M / 2) + 1;
+        int gs;
+        while (L != 0)
 
+        {
+            cout << "how many member in your group :";
+            cin >> gs;
+            if (L < gs)
+            {
+                cout << "The stadium can't incorparate the group size u required " << endl;
+                cout << "seat remaining is " << L << endl;
+            }
+            else
+            {
+                f = suggest_queue();
+                for (int i = 0; i < gs; i++)
+                {
+                    gate[f].push(i);
+                }
+                Waiting_time();
+
+                L -= gs;
+            }
+        }
+
+        Calculate_waiting_time();
+    }
 
     
 };
