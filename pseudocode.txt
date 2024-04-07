@@ -163,3 +163,32 @@ a -= newpeople;
 
 End While
         
+function group_system()
+int L,f
+if(M % 2 = 0)
+L = M/2
+End If
+ELSE
+L = M % 2 + 1
+End ELSE
+int gs
+print(How many members in your group)
+while( L!=0 )
+input(gs)
+if(L<gs)
+print(the stadiumcan't incorporate the group size u required)
+print(seat remaining is L)
+End If
+
+ELSE 
+f = suggest_queue()
+End ELSE
+for( i=0 to gs)
+gate[f].push(i)
+End For
+Waiting_time()
+End While
+l-=gs
+
+End Function
+
