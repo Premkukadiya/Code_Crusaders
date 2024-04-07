@@ -165,6 +165,16 @@ public:
             }
         }
     }
+    // Total no of people in Queue
+    int sum_of_the_number_of_people_in_gates()
+    {
+        sum = 0;
+        for (int i = 0; i < N; i++)
+        {
+            sum += gate[i].size();
+        }
+        return sum;
+    }
 
 
     
